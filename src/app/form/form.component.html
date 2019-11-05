@@ -1,0 +1,58 @@
+
+<h1 class="header">My Awesome Form!</h1>
+<div class="whole-form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+
+<div>
+<ng-container *ngIf=" controls.emailAddress.invalid && (controls.emailAddress.dirty)">
+      <span *ngIf="controls.emailAddress.errors.required" class ="error-message"> Email is required.  </span>
+      <span *ngIf="controls.emailAddress.errors.pattern" class ="error-message" >  Require valid email address.  </span></ng-container>
+      <ng-container *ngIf=" controls.invalid && controls.password.dirty">
+      <span *ngIf="controls.password.errors.required" class ="error-message">  Password is required.  </span>
+      <span *ngIf="controls.password.errors.minlength" class ="error-message" >  Password must be at least 8 characters.  </span>
+      <span *ngIf="controls.password.errors.pattern" class ="error-message" >  Password must contain a special and regular character.</span>
+</ng-container>
+</div>
+<div>
+  <label>
+    Email Address:
+  </label>
+    <input type="email" formControlName="emailAddress">
+    <div *ngIf=" controls.emailAddress.invalid && controls.emailAddress.dirty" class="invalid-feedback">
+      <div *ngIf="controls.emailAddress.errors.required" class ="error-message">Email is required.</div>
+      <div *ngIf="controls.emailAddress.errors.pattern" class ="error-message" >Require valid email address.</div>
+  </div>
+</div>
+<div>
+  <label>
+    Subscriptions:</label>
+    <select formControlName="subscriptions" class="form-control">
+      <option  *ngFor="let level of subscriptionLevels">{{level}}</option>
+
+  </select>
+</div>
+<div>
+  <label>
+    Password:
+  </label>
+    <input type="text" formControlName="password">
+    <div *ngIf=" controls.password.invalid && (controls.password.dirty)" class="invalid-feedback">
+      <div *ngIf="controls.password.errors.required" class ="error-message">Password is required.</div>
+      <div *ngIf="controls.password.errors.minlength" class ="error-message" >Password must be at least 8 characters.</div>
+      <div *ngIf="controls.password.errors.pattern" class ="error-message" >Password must contain a special and regular character.</div>
+  </div>
+</div>
+</form>
+</div>
+
+<div class ="button-container">
+<button type="submit" (click)="onSubmit()" [disabled]="buttonsDisabled">Submit</button>
+<button type="reset" (click)="onReset()"  [disabled]="buttonsDisabled">Clear</button>
+</div>
+
+
+<div *ngIf="showModal" class="modal">
+  <app-modal
+  (click)="onModalSelection($event)"
+  ></app-modal>
+</div>

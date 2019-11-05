@@ -1,0 +1,40 @@
+.error-message{
+  color: #e60000;
+}
+.whole-form{
+  display: inline-block;
+}
+.header{text-align: center;}
+
+div{
+  margin-bottom: 1rem;
+}
+.button-container{
+
+  display: inline-block;
+  right:0px;
+  position: fixed;
+  width: 35%;
+
+}
+button {
+  z-index: 3;
+  position: relative;
+  margin: 1rem;
+}
+.modal {
+  border: black solid 2px;
+  z-index: 1000;
+  position: fixed;
+  height: 200px;
+    width: 400px;
+
+
+
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+  left: 300px;
+
+}
