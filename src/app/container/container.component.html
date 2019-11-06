@@ -1,12 +1,9 @@
-<app-form *ngIf="!isSubmitted"
-(submission)="onSubmission($event)"
-></app-form>
+<app-form *ngIf="!isSubmitted" (submission)="onSubmission($event)"></app-form>
 <div *ngIf="isSubmitted">
   <p>Your form has been recieved. Here are you entries:</p>
-Email Address: {{submission.email}}<br>
-Subscription: {{submission.subscription}}<br>
-Password: {{submission.password}}<br>
+  Email Address: {{ submission.email }}<br />
+  Subscription: {{ submission.subscription }}<br />
+  Password: {{ submission.password }}<br />
 
-<h4>Thank you!!</h4>
-
+  <h4>Thank you!!</h4>
 </div>
